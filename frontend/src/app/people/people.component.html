@@ -1,0 +1,111 @@
+<section class="content-header darkBrown">
+  <h1>
+      Lista de Pessoas
+  </h1>
+</section>
+<section class="content">
+  <section class="invoice">
+      <div class="row">
+          <div class="col-xs-12">
+            <div class="box">
+              <div class="box-header">
+                <h3 class="box-title darkBrown">Contagem Total de Pessoas: {{countList | number}}</h3>
+                <!-- <button class="btn btn-primary pull-right" (click)="moreRecords()"> Mais 10 registros</button> -->
+                <div class="box-tools">
+                  <div class="input-group input-group-sm" style="width: 150px;"> 
+                  </div>
+                </div>
+              </div>
+              <div *ngIf="!isEdit">
+                <div *ngIf="!peopleLists"><img src="../../assets/img/OFuO.gif" style="margin-left: 12%;"></div>
+                <div *ngIf="peopleLists">
+                <!-- /.box-header -->
+                <div class="box-body table-responsive no-padding">
+                  <table class="table table-hover darkBrown">
+                    <tr>
+                      <th></th>                    
+                      <th>Nome</th>
+                      <th>CPF</th>
+                      <th>Telefone</th>                    
+                      <th></th>
+                    </tr>
+                    <tr *ngFor="let peopleList of peopleLists">
+                      <td>
+                        <a (click)="onEditPerson(peopleList)" class="small-box-footer">
+                          <i class="fa fa-edit"></i>
+                        </a>
+                      </td>
+                      <td>{{peopleList.name}}</td>
+                      <td>{{peopleList.cpf}}</td>
+                      <td>{{peopleList.phone}}</td>
+                      <td>
+                        <a (click)="onRemovePerson(peopleList._id)" class="small-box-footer">
+                          <i class="fa fa-remove"></i>
+                        </a>
+                      </td>
+                    </tr>                  
+                  </table>
+                </div>              
+                <!-- /.box-body -->
+                <div class="box-footer clearfix">
+                  <ul class="pagination pagination-sm no-margin pull-right">
+                  </ul>
+                </div>
+                </div>
+              </div> 
+              <div *ngIf="isEdit">
+                <form [formGroup]="personFormGroup" novalidate (ngSubmit)="onSubmit()" class="needs-validation">
+                  <div class="modal-body">
+                    <div class="row">               
+                      <div class="col-md-6">
+                        <fieldset class="form-group">
+                          <label>CPF<label style="color:crimson; font-size: 15px"><sup>*</sup></label></label>
+                          <input type="text" 
+                                class="form-control" 
+                                [textMask]="{mask: cpfMask}"
+                                formControlName="cpf"                                   
+                                placeholder="999.999.999-99"
+                                required 
+                                value='{{strCPF}}'                                    
+                                 [ngClass]="{ 'is-invalid': f.cpf.errors, 'is-valid': f.cpf.touched && !f.cpf.errors }">                          
+                        </fieldset>                
+                      </div> 
+                      <div class="col-md-6">
+                        <fieldset class="form-group">
+                          <label>Nome<label style="color:crimson; font-size: 15px"><sup>*</sup></label></label>
+                          <input type="text" 
+                                class="form-control"
+                                formControlName="name"                                                                     
+                                required     
+                                value='{{strName}}'
+                                  [ngClass]="{ 'is-invalid': f.name.errors, 'is-valid': f.name.touched && !f.name.errors }"> 
+                        </fieldset>
+                      </div>
+                      <div class="col-md-6">
+                        <fieldset class="form-group">
+                          <label>Telefone<label style="color:crimson; font-size: 15px"><sup>*</sup></label></label>
+                          <input type="text" 
+                                class="form-control" 
+                                [textMask]="{mask: phoneMask}"
+                                formControlName="phone"                                   
+                                placeholder="(81) 99999-9999"
+                                required 
+                                value='{{strPhone}}'                                    
+                                 [ngClass]="{ 'is-invalid': f.phone.errors, 'is-valid': f.phone.touched && !f.phone.errors }"> 
+                        </fieldset>                
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button class="btn btn-primary mr-1" type="submit" [disabled]="personFormGroup.pristine || personFormGroup.invalid">Salvar</button>                                
+                    <button class="btn btn-danger" type="reset" (click)="onReset()">Limpar</button>
+                    <!-- <button type="button" class="btn btn-secondary" (click)="registerClientModal.hide()">Close</button>           -->
+                  </div>
+                </form>
+              </div>                           
+            </div>            
+            <!-- /.box -->
+          </div>
+        </div>
+  </section> 
+</section>
