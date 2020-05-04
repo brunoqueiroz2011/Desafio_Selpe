@@ -44,11 +44,4 @@ Será realizado 4 etapas, primeiro deixaremos o TypeScript em modo Watch, onde e
 
 **OBS**: o passo 4 só precisa ser executado uma vez, ou seja, caso não seja a sua primeira vez inicializando o projeto pode pular o passo 4.
 
-## Frontend
-
-### Comandos para instalar as dependencias antes de executar o código fonte.
-1. Abra o prompt de comandos.
-2. Acesse a pasta frontend do projeto onde você salvou o clone do projeto.
-3. Execute o comando: _npm install_ isso instalará todas as dependencias que a aplicação do frontend precisa.
-4. Execute o comando: _npm start_ isso iniciará a aplicação frontend.
-5. Abra o seu navegador padrão acesse a URL: http://localhost:4200
+# Com isso o backend da aplicação já esta rodando!!!

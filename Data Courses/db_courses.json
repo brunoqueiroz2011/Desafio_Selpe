@@ -1,0 +1,15 @@
+use db_selpe
+
+db.courses.insert(
+	[
+		{
+			"name": "Sistema da Informação",	
+		},
+		{
+			"name": "Ciência da Computação",	
+		},
+		{
+			"name": "Engenharia da Computação",	
+		}
+	]
+)

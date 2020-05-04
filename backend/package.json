@@ -1,27 +1,19 @@
 {
-  "name": "backend_dasafio_selpe",
+  "name": "desafio_selpe",
   "version": "1.0.0",
-  "description": "Esse software realiza o CRUD de pessoas e associando o curso a essa pessoa, e mostrar isso em lista.",
-  "main": "loader.js",
+  "description": "Aplicação para cadastrar usuários e cursos",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon",
-    "production": "pm2 start loader.js --name backend_dasafio_selpe",
-    "startDB": "node insertCourse.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Bruno G. Queiroz",
+  "author": "Bruno Queiroz",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.18.3",
-    "express": "^4.16.4",
-    "express-query-int": "^3.0.0",
-    "fast-csv": "^2.4.1",
-    "lodash": "^4.17.11",
-    "mongoose": "^5.5.1",
-    "mongoose-paginate": "^5.0.3",
-    "node-restful": "^0.2.6",
-    "pm2": "^3.5.0"
+    "mongoose": "4.13.9",
+    "restify": "6.3.4"
   },
   "devDependencies": {
-    "nodemon": "^1.18.11"
+    "@types/mongoose": "^4.7.32",
+    "@types/restify": "5.0.6"
   }
 }
